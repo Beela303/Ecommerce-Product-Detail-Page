@@ -13,6 +13,8 @@
 #site-nav {
   margin: 33px 100px;
 
+  font-weight: 500;
+
   ul {
     display: flex;
 
