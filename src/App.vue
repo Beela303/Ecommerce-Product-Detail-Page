@@ -10,7 +10,7 @@
 
 <style lang="scss">
 :root {
-  --background-color-2: #C599B6;
+  --background-color: #C599B6;
 }
 
 * {
@@ -18,7 +18,7 @@
   padding: 0;
 
   box-sizing: border-box;
-  font-family: 'sansita', sans-serif;
+  font-family: 'clash grotesk', sans-serif;
 
   text-decoration: none;
 }
