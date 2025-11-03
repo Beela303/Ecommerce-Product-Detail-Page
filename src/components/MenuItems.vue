@@ -21,6 +21,8 @@
   padding: 31px;
 
   font-weight: 500;
+  line-height: 160%;
+
   border-bottom: 0.5px dotted #a3a3a3;
 
   display: flex;
