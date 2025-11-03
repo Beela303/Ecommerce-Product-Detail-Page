@@ -14,6 +14,7 @@
   margin: 33px 100px;
 
   font-weight: 500;
+  line-height: 160%;
 
   ul {
     display: flex;
@@ -29,7 +30,6 @@
 
       &:last-child {
         color: #292929;
-        margin: 4px;
       }
     }
   }
