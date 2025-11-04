@@ -76,6 +76,7 @@
 
 <style lang="scss" scoped>
 #related-product {
+  width: 85%;
   margin: 80px 0 100px 100px;
 
   #title {
@@ -85,14 +86,14 @@
     justify-content: space-between;
 
     h2 {
-      color: #141414;
+      color: var(--BLACK03);
 
       font-size: 28px;
       font-weight: 600;
     }
 
     span {
-      color: #525252;
+      color: var(--GRAY02);
 
       font-size: 16px;
       font-weight: 500;
@@ -114,7 +115,7 @@
       }
 
       .product-title {
-        color: #292929;
+        color: var(----BLACK02);
 
         margin-bottom: 16px;
 
@@ -126,7 +127,7 @@
       }
 
       .price {
-        color: #141414;
+        color: var(--BLACK03);
         margin-bottom: 6px;
 
         font-size: 20px;
@@ -137,7 +138,7 @@
       }
 
       .details {
-        color: #7A7A7A;
+        color: var(--GRAY05);
 
         margin-bottom: 8px;
 
@@ -162,7 +163,7 @@
               line-height: 160%;
 
               span {
-                color: #FFA439;
+                color: var(--ORANGE);
 
                 width: 24px;
                 height: 24px;
