@@ -1,9 +1,45 @@
 <script lang="ts">
+import { defineComponent, ref, onMounted } from 'vue';
+import { fetchProduct } from '@/services/apiService';
 
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+export default defineComponent({
+  name: 'ProductInfo',
+  setup() {
+    const product = ref<User[]>([]);
+    const isLoading = ref<boolean>(true);
+    const error = ref<string | null>(null);
+
+    const loadProduct = async () => {
+      try {
+        product.value = await fetchProduct();
+      } catch (err) {
+        error.value = 'Failed to fetch product.';
+      } finally {
+        isLoading.value = false;
+      }
+    };
+
+    onMounted(() => {
+      loadProduct();
+    });
+
+    return {
+      product,
+      isLoading,
+      error,
+    };
+  },
+});
 </script>
 
 <template>
-  <div id="product">
+  <div id="product" v-for="product in products" :key="product.id">
     <div id="left">
       <div id="pictures">
         <div id="first-div">
@@ -34,7 +70,7 @@
     <div id="right">
       <small id="collection-name">John Lewis ANYDAY</small>
 
-      <h2 id="product-name">Long Sleeve OverShirt, Khaki, 6</h2>
+      <h2 id="product-name">{{ product.name }}</h2>
 
       <div id="price-rating">
         <div id="price">
@@ -104,7 +140,7 @@
   padding-bottom: 80px !important;
 
   border-radius: 0.5px;
-  border-bottom: 1px dotted #A3A3A3;
+  border-bottom: 1px dashed var(--BORDER02);
 
   display: flex;
   justify-content: space-between;
@@ -137,7 +173,7 @@
             margin-right: 135px;
 
             li {
-              background: #f2f2f2;
+              background: var(--GRAY06);
 
               width: 52px;
               height: 52px;
@@ -150,7 +186,7 @@
               cursor: pointer;
 
               span {
-                color: #141414;
+                color: var(--BLACK03);
                 font-size: 20px;
               }
 
@@ -187,7 +223,7 @@
     }
 
     #product-name {
-      color: #292929;
+      color: var(----BLACK02);
 
       margin: 12px 20px 0 0;
 
@@ -200,7 +236,7 @@
       margin: 20px 28px 0 0;
 
       border-radius: 0.5px;
-      border-bottom: 1px dotted #A3A3A3;
+      border-bottom: 1px dashed var(--BORDER02);
 
       display: flex;
       justify-content: space-between;
@@ -220,7 +256,7 @@
             }
 
             &:last-child {
-              color: #141414;
+              color: var(--BLACK03);
 
               font-size: 28px;
               font-weight: 600;
@@ -242,7 +278,7 @@
             }
 
             &:last-child {
-              color: #141414;
+              color: var(--BLACK03);
 
               font-size: 24px;
               font-weight: 600;
@@ -250,7 +286,7 @@
               display: flex;
 
               span {
-                color: #FFA439;
+                color: var(--ORANGE);
 
                 width: 24px;
                 height: 24px;
@@ -265,7 +301,7 @@
 
     #description {
       #desc-title {
-        color: #292929;
+        color: var(----BLACK02);
 
         margin: 28px 10px 0 0;
 
@@ -309,7 +345,7 @@
         line-height: 120%;
 
         span {
-          color: #292929;
+          color: var(----BLACK02);
 
           font-weight: 600;
         }
@@ -333,12 +369,12 @@
             &:first-child {
               background-color: #534029;
 
-              border: 1px solid #141414;
+              border: 1px solid var(--BLACK03);
               border-radius: 6px;
             }
 
             &:nth-child(2) {
-              background-color: #EBEBEB;
+              background-color: var(--WHITE02);
             }
 
             &:nth-child(3) {
@@ -372,14 +408,14 @@
             line-height: 120%;
 
             span {
-              color: #292929;
+              color: var(----BLACK02);
 
               font-weight: 600;
             }
           }
 
           &:last-child {
-            color: #525252;
+            color: var(--GRAY02);
 
             font-size: 16px;
             font-weight: 500;
@@ -395,7 +431,7 @@
         justify-content: space-between;
 
         li {
-          color: #525252;
+          color: var(--GRAY02);
 
           width: 75px;
           height: 40px;
@@ -411,12 +447,12 @@
 
           line-height: 120%;
 
-          border: 1px solid #E6E6E6;
+          border: 1px solid var(--WHITE03);
           border-radius: 8px;
 
           &:nth-child(2) {
-            color: #141414;
-            background-color: #EBEBEB;
+            color: var(--BLACK03);
+            background-color: var(--WHITE02);
 
             border: 1px solid #333;
           }
@@ -434,10 +470,10 @@
         line-height: 120%;
 
         &:first-child {
-          color: #FFF;
-          background-color: #141414;
+          color: var(--WHITE01);
+          background-color: var(--BLACK03);
 
-          //          width: 296px;
+          //width: 296px;
           width: 60%;
           height: 58px;
 
@@ -456,13 +492,13 @@
           font-weight: 500;
 
           border-radius: 8px;
-          border: 1px solidd #B8B8B8;
+          border: 1px solid var(--BORDER01);
         }
       }
     }
 
     #delivery {
-      color: #7A7A7A;
+      color: var(--GRAY05);
 
       font-size: 16px;
       font-weight: 500;
