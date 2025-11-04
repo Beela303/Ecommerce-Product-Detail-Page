@@ -29,7 +29,7 @@
       }
 
       &:last-child {
-        color: #292929;
+        color: var(--BLACK02);
       }
     }
   }
