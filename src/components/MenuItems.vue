@@ -14,7 +14,7 @@
 
 <style lang="scss" scoped>
 #menu {
-  color: #141414;
+  color: var(--BLACK03);
 
   height: 94.03px;
   margin: 0 100px;
@@ -23,7 +23,7 @@
   font-weight: 500;
   line-height: 160%;
 
-  border-bottom: 0.5px dotted #a3a3a3;
+  border-bottom: 0.5px dashed var(--BORDER02);
 
   display: flex;
   justify-content: space-between;
