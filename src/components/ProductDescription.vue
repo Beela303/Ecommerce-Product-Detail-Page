@@ -1,4 +1,4 @@
-<script lang="ts">
+<!--<script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import { fetchProduct } from '@/services/apiService';
 
@@ -36,10 +36,10 @@ export default defineComponent({
     };
   },
 });
-</script>
+</script> -->
 
 <template>
-  <div id="product" v-for="product in products" :key="product.id">
+  <div id="product">
     <div id="left">
       <div id="pictures">
         <div id="first-div">
@@ -70,7 +70,7 @@ export default defineComponent({
     <div id="right">
       <small id="collection-name">John Lewis ANYDAY</small>
 
-      <h2 id="product-name">{{ product.name }}</h2>
+      <h2 id="product-name">Long Sleeve OverShirt, Khaki, 6</h2>
 
       <div id="price-rating">
         <div id="price">
