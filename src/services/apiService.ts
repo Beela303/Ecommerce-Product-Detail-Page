@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+<!--import axios, { AxiosResponse } from 'axios'
 
 interface User {
   id: number
@@ -17,3 +17,4 @@ export const fetchUsers = async (): Promise<User[]> => {
   const response: AxiosResponse<User[]> = await apiClient.get('/product')
   return response.data
 }
+-->
