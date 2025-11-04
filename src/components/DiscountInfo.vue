@@ -9,8 +9,8 @@
 
 <style lang="scss" scoped>
 #discount-info {
-  color: #fff;
-  background: #141414;
+  color: var(--WHITE01);
+  background: var(--BLACK03);
 
   text-align: center;
   display: flex;
