@@ -120,7 +120,6 @@ footer {
           display: flex;
 
           li {
-            color: var(--BLACK04);
             background: var(--WHITE01);
 
             width: 36px;
@@ -135,6 +134,8 @@ footer {
             }
 
             a {
+            color: var(--BLACK04) !important;
+
               span {
                 width: 8px;
                 height: 13px;
